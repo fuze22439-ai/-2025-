@@ -1,0 +1,441 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     15290,        431]
+NotebookOptionsPosition[     14912,        416]
+NotebookOutlinePosition[     15330,        433]
+CellTagsIndexPosition[     15287,        430]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Configuration", ":", 
+    RowBox[{"Set", " ", "export", " ", "directory"}]}], "*)"}], 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"If", " ", "you", " ", 
+     RowBox[{"haven", "'"}], "t", " ", "saved", " ", "your", " ", 
+     "notebook"}], ",", 
+    RowBox[{
+    "this", " ", "will", " ", "use", " ", "the", " ", "system", " ", 
+     "default", " ", "directory"}]}], "*)"}], 
+  RowBox[{
+   RowBox[{
+    RowBox[{"exportDir", "=", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"NotebookFileName", "[", "]"}], "!=", "$Failed"}], ",", 
+       RowBox[{"NotebookDirectory", "[", "]"}], ",", "$HomeDirectory"}], 
+      "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Target export directory: \>\"", ",", "exportDir"}], "]"}], 
+    ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"Task", " ", "1.1"}], ":", 
+     RowBox[{"Vector", " ", "Calculus"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", "\"\<--- Task 1.1 ---\>\"", "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"A", "=", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", 
+       RowBox[{"-", "x"}], ",", "z"}], "}"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"B", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"x", "^", "2"}], ",", 
+       RowBox[{"y", "^", "2"}], ",", 
+       RowBox[{"z", "^", "2"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{"Cross", " ", "Product"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"crossAB", "=", 
+     RowBox[{
+      RowBox[{"Cross", "[", 
+       RowBox[{"A", ",", "B"}], "]"}], "//", "Simplify"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<A x B = \>\"", ",", "crossAB"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", "Curl", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"curlA", "=", 
+     RowBox[{"Curl", "[", 
+      RowBox[{"A", ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "y", ",", "z"}], "}"}]}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"curlB", "=", 
+     RowBox[{"Curl", "[", 
+      RowBox[{"B", ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "y", ",", "z"}], "}"}]}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<curl A = \>\"", ",", "curlA"}], "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<curl B = \>\"", ",", "curlB"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"Identity", ":", 
+      RowBox[{"curl", 
+       RowBox[{"(", 
+        RowBox[{"grad", " ", "phi"}], ")"}]}]}], "=", "0"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"phiScalar", "=", 
+     RowBox[{"f", "[", 
+      RowBox[{"x", ",", "y", ",", "z"}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"gradPhi", "=", 
+     RowBox[{"Grad", "[", 
+      RowBox[{"phiScalar", ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "y", ",", "z"}], "}"}]}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"curlGradPhi", "=", 
+     RowBox[{
+      RowBox[{"Curl", "[", 
+       RowBox[{"gradPhi", ",", 
+        RowBox[{"{", 
+         RowBox[{"x", ",", "y", ",", "z"}], "}"}]}], "]"}], "//", 
+      "Simplify"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<curl(grad phi) = \>\"", ",", "curlGradPhi"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"Task", " ", "1.2"}], ":", 
+     RowBox[{"Divergence", " ", "and", " ", "Flux"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", "\"\<\\n--- Task 1.2 ---\>\"", "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"r", "=", 
+     RowBox[{"Sqrt", "[", 
+      RowBox[{
+       RowBox[{"x", "^", "2"}], "+", 
+       RowBox[{"y", "^", "2"}], "+", 
+       RowBox[{"z", "^", "2"}]}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"F", "=", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"x", ",", "y", ",", "z"}], "}"}], "/", 
+      RowBox[{"r", "^", "3"}]}]}], ";"}], "\n", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"divF", "=", 
+     RowBox[{
+      RowBox[{"Div", "[", 
+       RowBox[{"F", ",", 
+        RowBox[{"{", 
+         RowBox[{"x", ",", "y", ",", "z"}], "}"}]}], "]"}], "//", 
+      "FullSimplify"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<div F (for r != 0) = \>\"", ",", "divF"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", "Visualization", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"vectorPlot", "=", 
+     RowBox[{"VectorPlot3D", "[", 
+      RowBox[{"F", ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", 
+         RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"y", ",", 
+         RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"z", ",", 
+         RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+       RowBox[{"VectorPoints", "->", "10"}], ",", 
+       RowBox[{"VectorStyle", "->", "\"\<Arrow3D\>\""}], ",", 
+       RowBox[{"PlotLabel", "->", "\"\<Field F = r/r^3\>\""}], ",", 
+       RowBox[{"PlotTheme", "->", "\"\<Scientific\>\""}]}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{"exportDir", ",", "\"\<vector_plot_f.png\>\""}], "}"}], "]"}],
+       ",", "vectorPlot", ",", 
+      RowBox[{"ImageSize", "->", "800"}]}], "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Vector plot saved at: \>\"", ",", 
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{"exportDir", ",", "\"\<vector_plot_f.png\>\""}], "}"}], 
+       "]"}]}], "]"}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Physical", " ", 
+     RowBox[{"Interpretation", ":", 
+      RowBox[{
+      "This", " ", "field", " ", "represents", " ", "the", " ", "electric", " ",
+        "field", " ", "of", " ", "a", " ", "point", " ", "charge", " ", "at", 
+       " ", "the", " ", "origin", " ", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+         "or", " ", "the", " ", "gravitational", " ", "field", " ", "of", " ",
+           "a", " ", "point", " ", "mass"}], ")"}], ".", "Divergence"}], " ", 
+       "is", " ", "zero", " ", "everywhere", " ", "except", " ", "at", " ", 
+       "the", " ", 
+       RowBox[{"origin", "."}]}]}]}], "*)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"Task", " ", "2"}], ":", "Electrostatics"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", "\"\<\\n--- Task 2 ---\>\"", "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"q", "=", "1"}], ";", 
+    RowBox[{"k", "=", "1"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"charges", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"q", ",", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"q", ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "1"}], ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", "2"}], "*", "q"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}]}], "}"}]}], ";"}],
+    "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{"Total", " ", "Potential", " ", "phi", 
+     RowBox[{"(", 
+      RowBox[{"x", ",", "y", ",", "z"}], ")"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"phiTotal", "[", 
+      RowBox[{"x_", ",", "y_", ",", "z_"}], "]"}], ":=", 
+     RowBox[{"Sum", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"c", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "/", 
+        RowBox[{"Sqrt", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"x", "-", 
+             RowBox[{"c", "[", 
+              RowBox[{"[", 
+               RowBox[{"2", ",", "1"}], "]"}], "]"}]}], ")"}], "^", "2"}], "+", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"y", "-", 
+             RowBox[{"c", "[", 
+              RowBox[{"[", 
+               RowBox[{"2", ",", "2"}], "]"}], "]"}]}], ")"}], "^", "2"}], "+", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"z", "-", 
+             RowBox[{"c", "[", 
+              RowBox[{"[", 
+               RowBox[{"2", ",", "3"}], "]"}], "]"}]}], ")"}], "^", "2"}]}], 
+         "]"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"c", ",", "charges"}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"Electric", " ", "Field", " ", "E"}], "=", 
+     RowBox[{
+      RowBox[{"-", "grad"}], " ", "phi"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"fieldE", "[", 
+      RowBox[{"x_", ",", "y_", ",", "z_"}], "]"}], ":=", 
+     RowBox[{
+      RowBox[{"-", 
+       RowBox[{"Grad", "[", 
+        RowBox[{
+         RowBox[{"phiTotal", "[", 
+          RowBox[{"sx", ",", "sy", ",", "sz"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"sx", ",", "sy", ",", "sz"}], "}"}]}], "]"}]}], "/.", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"sx", "->", "x"}], ",", 
+        RowBox[{"sy", "->", "y"}], ",", 
+        RowBox[{"sz", "->", "z"}]}], "}"}]}]}], ";"}], "\[IndentingNewLine]", 
+   "\n", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"Visualizations", " ", "on", " ", "z"}], "=", 
+     RowBox[{"0", " ", "plane"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"contourPlot", "=", 
+     RowBox[{"ContourPlot", "[", 
+      RowBox[{
+       RowBox[{"phiTotal", "[", 
+        RowBox[{"x", ",", "y", ",", "0"}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", 
+         RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"y", ",", 
+         RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+       RowBox[{"Contours", "->", "20"}], ",", 
+       RowBox[{"ColorFunction", "->", "\"\<TemperatureMap\>\""}], ",", 
+       RowBox[{"PlotLabel", "->", "\"\<Potential Landscape at z=0\>\""}], ",", 
+       RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}]}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"streamPlot", "=", 
+     RowBox[{"StreamPlot", "[", 
+      RowBox[{
+       RowBox[{"Take", "[", 
+        RowBox[{
+         RowBox[{"fieldE", "[", 
+          RowBox[{"x", ",", "y", ",", "0"}], "]"}], ",", "2"}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", 
+         RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"y", ",", 
+         RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+       RowBox[{"PlotLabel", "->", "\"\<Electric Field Lines at z=0\>\""}], ",", 
+       RowBox[{"PlotTheme", "->", "\"\<Scientific\>\""}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{"Export", " ", "images"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{"exportDir", ",", "\"\<potential_contour.png\>\""}], "}"}], 
+       "]"}], ",", "contourPlot", ",", 
+      RowBox[{"ImageSize", "->", "800"}]}], "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{"exportDir", ",", "\"\<field_stream.png\>\""}], "}"}], "]"}], 
+      ",", "streamPlot", ",", 
+      RowBox[{"ImageSize", "->", "800"}]}], "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Images saved in: \>\"", ",", "exportDir"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Display", " ", "plots", " ", "directly", " ", "in", " ", "Notebook", " ",
+      "with", " ", "labeling"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", "\"\<--- Visual Results ---\>\"", "]"}], ";"}], "\n", 
+   RowBox[{"Show", "[", "contourPlot", "]"}], "\n", 
+   RowBox[{"Show", "[", "streamPlot", "]"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"Find", " ", "equilibrium", " ", "points", " ", "E"}], "=", 
+     "0"}], "*)"}], "\n", 
+   RowBox[{"(*", 
+    RowBox[{"Optimized", ":", 
+     RowBox[{
+     "Use", " ", "a", " ", "search", " ", "range", " ", "and", " ", "Reduce", 
+      " ", "or", " ", "NSolve", " ", "with", " ", "speed", " ", "focus"}]}], 
+    "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+    "Print", "[", "\"\<Finding equilibrium points (this may take a few \
+seconds)...\>\"", "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"eqPoints", "=", 
+     RowBox[{"NSolve", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"fieldE", "[", 
+           RowBox[{"x", ",", "y", ",", "z"}], "]"}], "==", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "0", ",", "0"}], "}"}]}], ",", 
+         RowBox[{
+          RowBox[{"-", "1.5"}], "<", "x", "<", "1.5"}], ",", 
+         RowBox[{
+          RowBox[{"-", "1.5"}], "<", "y", "<", "1.5"}], ",", 
+         RowBox[{
+          RowBox[{"-", "1.5"}], "<", "z", "<", "1.5"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "y", ",", "z"}], "}"}], ",", "Reals"}], "]"}]}], 
+    ";"}], "\n", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Equilibrium points (E=0): \>\"", ",", 
+      RowBox[{"eqPoints", "//", "TableForm"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{"Stability", " ", 
+     RowBox[{"Discussion", ":", 
+      RowBox[{
+      "Equilibrium", " ", "points", " ", "in", " ", "static", " ", "electric",
+        " ", "fields", " ", "are", " ", "always", " ", "unstable", " ", 
+       RowBox[{"(", 
+        RowBox[{"saddle", " ", "points"}], ")"}], " ", "due", " ", "to", " ", 
+       RowBox[{"Gauss", "'"}], "s", " ", "Law", " ", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"Earnshaw", "'"}], "s", " ", "Theorem"}], ")"}], 
+        "."}]}]}]}], "*)"}], "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.976865968628729*^9, 
+  3.9768659686297245`*^9}},ExpressionUUID->"305986eb-a4ba-184e-b8e2-\
+6960c67e01ff"]
+},
+WindowSize->{581.25, 654},
+WindowMargins->{{663, Automatic}, {Automatic, 172.5}},
+FrontEndVersion->"14.3 for Microsoft Windows (64-bit) (2025\:5e747\:67088\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"2d68f7d6-8b3b-8342-90c5-5a7011caad36"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[554, 20, 14354, 394, 2756, "Input",ExpressionUUID->"305986eb-a4ba-184e-b8e2-6960c67e01ff"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

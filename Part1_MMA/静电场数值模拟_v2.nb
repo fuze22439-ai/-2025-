@@ -1,0 +1,243 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      8101,        235]
+NotebookOptionsPosition[      7720,        220]
+NotebookOutlinePosition[      8142,        237]
+CellTagsIndexPosition[      8099,        234]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"===", 
+     RowBox[{"MMA", " ", "\:4efb\:52a1\:4e8c"}]}], "\:ff1a", 
+    RowBox[{
+     RowBox[{"\:9759\:7535\:573a\:6570\:503c\:6a21\:62df", " ", 
+      RowBox[{"(", "\:72ec\:7acb\:8fd0\:884c\:7248", ")"}]}], "==="}]}], 
+   "*)"}], 
+  RowBox[{
+   RowBox[{
+    RowBox[{"ClearAll", "[", 
+     RowBox[{"\"\<phi\>\"", ",", "\"\<symE\>\"", ",", "\"\<charges\>\"", 
+      ",", "\"\<eqList\>\"", ",", "\"\<cp\>\""}], "]"}], ";"}], " ", 
+   RowBox[{
+   "(*", "\:4ec5\:6e05\:7406\:672c\:9898\:76f8\:5173\:53d8\:91cf", "*)"}], 
+   "\n", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"1.", " ", "\:57fa\:7840\:914d\:7f6e"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"exportDir", "=", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Quiet", "[", 
+         RowBox[{"NotebookFileName", "[", "]"}], "]"}], "=!=", "$Failed"}], ",", 
+       RowBox[{"NotebookDirectory", "[", "]"}], ",", "$HomeDirectory"}], 
+      "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"q", "=", "1"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"charges", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"q", ",", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"q", ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "1"}], ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", "2"}], "*", "q"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}]}], "}"}]}], ";"}],
+    "\n", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"2.", " ", "\:7535\:52bf\:51fd\:6570\:5b9a\:4e49"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"phi", "[", 
+      RowBox[{"x_", ",", "y_", ",", "z_"}], "]"}], ":=", 
+     RowBox[{"Total", "[", 
+      RowBox[{"Map", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"#", "[", 
+           RowBox[{"[", "1", "]"}], "]"}], "/", 
+          RowBox[{"Sqrt", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"x", "-", 
+               RowBox[{"#", "[", 
+                RowBox[{"[", 
+                 RowBox[{"2", ",", "1"}], "]"}], "]"}]}], ")"}], "^", "2"}], "+", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"y", "-", 
+               RowBox[{"#", "[", 
+                RowBox[{"[", 
+                 RowBox[{"2", ",", "2"}], "]"}], "]"}]}], ")"}], "^", "2"}], "+", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"z", "-", 
+               RowBox[{"#", "[", 
+                RowBox[{"[", 
+                 RowBox[{"2", ",", "3"}], "]"}], "]"}]}], ")"}], "^", "2"}]}],
+            "]"}]}], "&"}], ",", "charges"}], "]"}], "]"}]}], ";"}], "\n", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"3.", " ", "\:6e32\:67d3\:5206\:5e03\:56fe", " ", 
+     RowBox[{"(", 
+      RowBox[{"z", "=", 
+       RowBox[{"0", " ", "\:5e73\:9762"}]}], ")"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+    "Print", "[", "\"\<\:6b63\:5728\:751f\:6210\:7535\:52bf\:7b49\:9ad8\:7ebf\
+\:56fe...\>\"", "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"cp", "=", 
+     RowBox[{"ContourPlot", "[", 
+      RowBox[{
+       RowBox[{"phi", "[", 
+        RowBox[{"x", ",", "y", ",", "0"}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", 
+         RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"y", ",", 
+         RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+       RowBox[{"Contours", "->", "15"}], ",", 
+       RowBox[{"ColorFunction", "->", "\"\<TemperatureMap\>\""}], ",", 
+       RowBox[{"MaxRecursion", "->", "0"}], ",", 
+       RowBox[{
+       "(*", "\:7981\:7528\:9012\:5f52\:786e\:4fdd\:77ac\:95f4\:6e32\:67d3", 
+        "*)"}], 
+       RowBox[{"PlotPoints", "->", "20"}], ",", 
+       RowBox[{"PlotLabel", "->", "\"\<Potential Landscape at z=0\>\""}]}], 
+      "]"}]}], ";"}], "\n", 
+   RowBox[{"Show", "[", "cp", "]"}], "\n", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"4.", " ", "\:6c42\:89e3\:5e73\:8861\:70b9", " ", 
+     RowBox[{"(", 
+      RowBox[{"E", "=", "0"}], ")"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+    "Print", "[", "\"\<\:6b63\:5728\:8ba1\:7b97\:7535\:573a\:5e73\:8861\:70b9 \
+(E=0)...\>\"", "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "\:9884\:8ba1\:7b97\:7b26\:53f7\:68af\:5ea6\:4ee5\:63d0\:9ad8", " ", 
+     "NSolve", " ", "\:6548\:7387"}], "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"symE", "=", 
+     RowBox[{
+      RowBox[{"-", 
+       RowBox[{"Grad", "[", 
+        RowBox[{
+         RowBox[{"phi", "[", 
+          RowBox[{"px", ",", "py", ",", "pz"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"px", ",", "py", ",", "pz"}], "}"}]}], "]"}]}], "//", 
+      "Simplify"}]}], ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"eqList", "=", 
+     RowBox[{"NSolve", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"symE", "[", 
+             RowBox[{"[", "1", "]"}], "]"}], "/.", " ", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"px", "->", "x"}], ",", 
+              RowBox[{"py", "->", "y"}], ",", 
+              RowBox[{"pz", "->", "z"}]}], "}"}]}], ")"}], "==", "0"}], ",", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"symE", "[", 
+             RowBox[{"[", "2", "]"}], "]"}], "/.", " ", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"px", "->", "x"}], ",", 
+              RowBox[{"py", "->", "y"}], ",", 
+              RowBox[{"pz", "->", "z"}]}], "}"}]}], ")"}], "==", "0"}], ",", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"symE", "[", 
+             RowBox[{"[", "3", "]"}], "]"}], "/.", " ", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"px", "->", "x"}], ",", 
+              RowBox[{"py", "->", "y"}], ",", 
+              RowBox[{"pz", "->", "z"}]}], "}"}]}], ")"}], "==", "0"}], ",", 
+         RowBox[{
+          RowBox[{"-", "2"}], "<", "z", "<", "2"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "y", ",", "z"}], "}"}], ",", "Reals"}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{
+    "Print", "[", "\"\<--- \:4efb\:52a1\:4e8c\:7ed3\:679c ---\>\"", "]"}], 
+    ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", "\"\<\:5e73\:8861\:70b9\:4f4d\:7f6e:\>\"", "]"}], 
+    ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"eqList", "//", "TableForm"}], "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{
+    "Print", "[", "\"\<\\n[\:5b8c\:6210] \:4efb\:52a1\:4e8c\:5df2\:6210\:529f\
+\:8fd0\:884c\:3002\>\"", "]"}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.976868235046932*^9, 3.976868235046932*^9}, {
+  3.976868531106415*^9, 
+  3.9768685335916824`*^9}},ExpressionUUID->"3087a2b5-317b-bd49-afa2-\
+45903b7b7a53"]
+},
+WindowSize->{581.25, 654},
+WindowMargins->{{Automatic, 273.75}, {162.75, Automatic}},
+FrontEndVersion->"14.3 for Microsoft Windows (64-bit) (2025\:5e747\:67088\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"c35859e2-687f-904d-afeb-46c7239ece32"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[554, 20, 7162, 198, 1095, "Input",ExpressionUUID->"3087a2b5-317b-bd49-afa2-45903b7b7a53"]
+}
+]
+*)
+

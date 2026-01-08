@@ -1,0 +1,346 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     11833,        336]
+NotebookOptionsPosition[     11455,        321]
+NotebookOutlinePosition[     11873,        338]
+CellTagsIndexPosition[     11830,        335]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Configuration", ":", 
+    RowBox[{"Set", " ", "export", " ", "directory"}]}], "*)"}], 
+  RowBox[{
+   RowBox[{
+    RowBox[{"exportDir", "=", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Quiet", "[", 
+         RowBox[{"NotebookFileName", "[", "]"}], "]"}], "=!=", "$Failed"}], ",", 
+       RowBox[{"NotebookDirectory", "[", "]"}], ",", "$HomeDirectory"}], 
+      "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Target export directory: \>\"", ",", "exportDir"}], "]"}], 
+    ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"Task", " ", "2"}], ":", "Electrostatics"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", "\"\<\\n--- Task 2: Electrostatics ---\>\"", "]"}], 
+    ";"}], "\n", 
+   RowBox[{
+    RowBox[{"q", "=", "1"}], ";", 
+    RowBox[{"k", "=", "1"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"charges", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"q", ",", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"q", ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "1"}], ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", "2"}], "*", "q"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}]}], "}"}]}], ";"}],
+    "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{"Total", " ", "Potential", " ", "phi", 
+     RowBox[{"(", 
+      RowBox[{"x", ",", "y", ",", "z"}], ")"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"phiTotal", "[", 
+      RowBox[{"x_", ",", "y_", ",", "z_"}], "]"}], ":=", 
+     RowBox[{"Sum", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"c", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "/", 
+        RowBox[{"Sqrt", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"x", "-", 
+             RowBox[{"c", "[", 
+              RowBox[{"[", 
+               RowBox[{"2", ",", "1"}], "]"}], "]"}]}], ")"}], "^", "2"}], "+", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"y", "-", 
+             RowBox[{"c", "[", 
+              RowBox[{"[", 
+               RowBox[{"2", ",", "2"}], "]"}], "]"}]}], ")"}], "^", "2"}], "+", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"z", "-", 
+             RowBox[{"c", "[", 
+              RowBox[{"[", 
+               RowBox[{"2", ",", "3"}], "]"}], "]"}]}], ")"}], "^", "2"}]}], 
+         "]"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"c", ",", "charges"}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"Electric", " ", "Field", " ", "E"}], "=", 
+     RowBox[{
+      RowBox[{"-", "grad"}], " ", "phi"}]}], "*)"}], "\n", 
+   RowBox[{"(*", 
+    RowBox[{"Optimized", ":", 
+     RowBox[{"Pre", "-", 
+      RowBox[{
+      "compute", " ", "symbolic", " ", "field", " ", "to", " ", "avoid", " ", 
+       "re"}], "-", 
+      RowBox[{"calculating", " ", "grad", " ", "inside", " ", 
+       RowBox[{"plot", "/", "solver"}]}]}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"symbolicPhi", "=", 
+     RowBox[{"phiTotal", "[", 
+      RowBox[{"sx", ",", "sy", ",", "sz"}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"symbolicE", "=", 
+     RowBox[{
+      RowBox[{"-", 
+       RowBox[{"Grad", "[", 
+        RowBox[{"symbolicPhi", ",", 
+         RowBox[{"{", 
+          RowBox[{"sx", ",", "sy", ",", "sz"}], "}"}]}], "]"}]}], "//", 
+      "Simplify"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"fieldEFunc", "[", 
+      RowBox[{"x_Val", ",", "y_Val", ",", "z_Val"}], "]"}], ":=", 
+     RowBox[{"symbolicE", "/.", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"sx", "->", "x"}], ",", 
+        RowBox[{"sy", "->", "y"}], ",", 
+        RowBox[{"sz", "->", "z"}]}], "}"}]}]}], ";"}], "\[IndentingNewLine]", 
+   "\n", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"Visualizations", " ", "on", " ", "z"}], "=", 
+     RowBox[{"0", " ", "plane"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"contourPlot", "=", 
+     RowBox[{"ContourPlot", "[", 
+      RowBox[{
+       RowBox[{"phiTotal", "[", 
+        RowBox[{"x", ",", "y", ",", "0"}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", 
+         RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"y", ",", 
+         RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+       RowBox[{"Contours", "->", "20"}], ",", 
+       RowBox[{"ColorFunction", "->", "\"\<TemperatureMap\>\""}], ",", 
+       RowBox[{"PlotLabel", "->", "\"\<Potential Landscape at z=0\>\""}], ",", 
+       RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}]}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"streamPlot", "=", 
+     RowBox[{"StreamPlot", "[", 
+      RowBox[{
+       RowBox[{"Take", "[", 
+        RowBox[{
+         RowBox[{"symbolicE", "/.", " ", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"sz", "->", "0"}], ",", 
+            RowBox[{"sx", "->", "x"}], ",", 
+            RowBox[{"sy", "->", "y"}]}], "}"}]}], ",", "2"}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", 
+         RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"y", ",", 
+         RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+       RowBox[{"PlotLabel", "->", "\"\<Electric Field Lines at z=0\>\""}], ",", 
+       RowBox[{"PlotTheme", "->", "\"\<Scientific\>\""}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{"Export", " ", "images"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{"exportDir", ",", "\"\<potential_contour.png\>\""}], "}"}], 
+       "]"}], ",", "contourPlot", ",", 
+      RowBox[{"ImageSize", "->", "800"}]}], "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{"exportDir", ",", "\"\<field_stream.png\>\""}], "}"}], "]"}], 
+      ",", "streamPlot", ",", 
+      RowBox[{"ImageSize", "->", "800"}]}], "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Images saved in: \>\"", ",", "exportDir"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Display", " ", "plots", " ", "directly", " ", "in", " ", "Notebook"}], 
+    "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", "\"\<--- Visual Results ---\>\"", "]"}], ";"}], "\n", 
+   RowBox[{"Show", "[", "contourPlot", "]"}], "\n", 
+   RowBox[{"Show", "[", "streamPlot", "]"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"Find", " ", "equilibrium", " ", "points", " ", "E"}], "=", 
+     "0"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+    "Print", "[", "\"\<Finding equilibrium points (Optimized Symbolic \
+Search)...\>\"", "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"eqPoints", "=", 
+     RowBox[{"NSolve", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Thread", "[", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"symbolicE", "/.", " ", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"sx", "->", "x"}], ",", 
+              RowBox[{"sy", "->", "y"}], ",", 
+              RowBox[{"sz", "->", "z"}]}], "}"}]}], ")"}], "==", "0"}], "]"}],
+         "~", "Join", "~", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "2"}], "<", "x", "<", "2"}], ",", 
+          RowBox[{
+           RowBox[{"-", "2"}], "<", "y", "<", "2"}], ",", 
+          RowBox[{
+           RowBox[{"-", "2"}], "<", "z", "<", "2"}]}], "}"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "y", ",", "z"}], "}"}], ",", "Reals"}], "]"}]}], 
+    ";"}], "\n", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Equilibrium points (E=0): \>\"", ",", 
+      RowBox[{"eqPoints", "//", "TableForm"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{"Bonus", ":", 
+     RowBox[{
+      RowBox[{"Verify", " ", 
+       RowBox[{"Gauss", "'"}], "s", " ", "Law"}], "-", 
+      RowBox[{
+      "Calculate", " ", "flux", " ", "through", " ", "a", " ", "small", " ", 
+       "sphere", " ", "around", " ", "one", " ", "charge"}]}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+    "Print", "[", "\"\<\\n--- Verification: Gauss's Law ---\>\"", "]"}], 
+    ";"}], "\n", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Use", " ", "NIntegrate", " ", "for", " ", "numerical", " ", "speed", " ",
+      "instead", " ", "of", " ", "Integrate"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"fluxSphere", "=", 
+     RowBox[{
+      RowBox[{"1", "/", 
+       RowBox[{"(", 
+        RowBox[{"4", " ", "Pi"}], ")"}]}], "*", 
+      RowBox[{"NIntegrate", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Dot", "[", 
+          RowBox[{
+           RowBox[{"symbolicE", "/.", " ", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"sx", "->", 
+               RowBox[{"1", "+", 
+                RowBox[{"0.1", " ", 
+                 RowBox[{"Sin", "[", "th", "]"}], " ", 
+                 RowBox[{"Cos", "[", "ph", "]"}]}]}]}], ",", 
+              RowBox[{"sy", "->", 
+               RowBox[{"0.1", " ", 
+                RowBox[{"Sin", "[", "th", "]"}], " ", 
+                RowBox[{"Sin", "[", "ph", "]"}]}]}], ",", 
+              RowBox[{"sz", "->", 
+               RowBox[{"0.1", " ", 
+                RowBox[{"Cos", "[", "th", "]"}]}]}]}], "}"}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Sin", "[", "th", "]"}], " ", 
+              RowBox[{"Cos", "[", "ph", "]"}]}], ",", 
+             RowBox[{
+              RowBox[{"Sin", "[", "th", "]"}], " ", 
+              RowBox[{"Sin", "[", "ph", "]"}]}], ",", 
+             RowBox[{"Cos", "[", "th", "]"}]}], "}"}]}], "]"}], "*", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"0.1", "^", "2"}], "*", 
+           RowBox[{"Sin", "[", "th", "]"}]}], ")"}]}], ",", 
+        RowBox[{"{", 
+         RowBox[{"th", ",", "0", ",", "Pi"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"ph", ",", "0", ",", 
+          RowBox[{"2", " ", "Pi"}]}], "}"}]}], "]"}]}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Normalized Flux through sphere around q1: \>\"", ",", 
+      "fluxSphere", ",", "\"\< (Expected approx 1.0)\>\""}], "]"}], ";"}], 
+   "\n"}]}]], "Input",
+ CellChangeTimes->{{3.97686708047118*^9, 
+  3.97686708047118*^9}},ExpressionUUID->"3378e472-4442-564c-8333-\
+3d746350c9c9"]
+},
+WindowSize->{581.25, 654},
+WindowMargins->{{663, Automatic}, {Automatic, 172.5}},
+FrontEndVersion->"14.3 for Microsoft Windows (64-bit) (2025\:5e747\:67088\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"22f3dd4c-f487-1e46-ade6-4c9d2c436d96"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[554, 20, 10897, 299, 1821, "Input",ExpressionUUID->"3378e472-4442-564c-8333-3d746350c9c9"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

@@ -1,0 +1,44 @@
+(* Configuration: Set export directory *)
+(* Use UnsameQ (=!=) for robust comparison and Quiet to suppress errors if NB is not saved *)
+exportDir = If[Quiet[NotebookFileName[]] =!= $Failed, NotebookDirectory[], $HomeDirectory];
+Print["Target export directory: ", exportDir];
+
+(* Task 1.1: Vector Calculus *)
+Print["--- Task 1.1 ---"];
+A = {y, -x, z};
+B = {x^2, y^2, z^2};
+
+(* Cross Product *)
+crossAB = Cross[A, B] // Simplify;
+Print["A x B = ", crossAB];
+
+(* Curl *)
+curlA = Curl[A, {x, y, z}];
+curlB = Curl[B, {x, y, z}];
+Print["curl A = ", curlA];
+Print["curl B = ", curlB];
+
+(* Identity: curl(grad phi) = 0 *)
+phiScalar = f[x, y, z];
+gradPhi = Grad[phiScalar, {x, y, z}];
+curlGradPhi = Curl[gradPhi, {x, y, z}] // Simplify;
+Print["curl(grad phi) = ", curlGradPhi];
+
+
+(* Task 1.2: Divergence and Flux *)
+Print["\n--- Task 1.2 ---"];
+r = Sqrt[x^2 + y^2 + z^2];
+F = {x, y, z}/r^3;
+
+divF = Div[F, {x, y, z}] // FullSimplify;
+Print["div F (for r != 0) = ", divF];
+
+(* Visualization *)
+vectorPlot = VectorPlot3D[F, {x, -2, 2}, {y, -2, 2}, {z, -2, 2}, 
+  VectorPoints -> 10, VectorStyle -> "Arrow3D", 
+  PlotLabel -> "Field F = r/r^3", PlotTheme -> "Scientific"];
+Export[FileNameJoin[{exportDir, "vector_plot_f.png"}], vectorPlot, ImageSize -> 800];
+Print["Vector plot saved at: ", FileNameJoin[{exportDir, "vector_plot_f.png"}]];
+Show[vectorPlot]
+
+(* Task 2 has been moved to a separate file: Task2_Electrostatics.txt *)

@@ -1,0 +1,539 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     18571,        529]
+NotebookOptionsPosition[     17177,        500]
+NotebookOutlinePosition[     17599,        517]
+CellTagsIndexPosition[     17556,        514]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Task", " ", "1.1"}], ":", 
+    RowBox[{"Vector", " ", "Calculus"}]}], "*)"}], 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Print", "[", "\"\<--- Task 1.1 ---\>\"", "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"A", "=", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", 
+       RowBox[{"-", "x"}], ",", "z"}], "}"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"B", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"x", "^", "2"}], ",", 
+       RowBox[{"y", "^", "2"}], ",", 
+       RowBox[{"z", "^", "2"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{"Cross", " ", "Product"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"crossAB", "=", 
+     RowBox[{
+      RowBox[{"Cross", "[", 
+       RowBox[{"A", ",", "B"}], "]"}], "//", "Simplify"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<A x B = \>\"", ",", "crossAB"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", "Curl", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"curlA", "=", 
+     RowBox[{"Curl", "[", 
+      RowBox[{"A", ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "y", ",", "z"}], "}"}]}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"curlB", "=", 
+     RowBox[{"Curl", "[", 
+      RowBox[{"B", ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "y", ",", "z"}], "}"}]}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<curl A = \>\"", ",", "curlA"}], "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<curl B = \>\"", ",", "curlB"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"Identity", ":", 
+      RowBox[{"curl", 
+       RowBox[{"(", 
+        RowBox[{"grad", " ", "phi"}], ")"}]}]}], "=", "0"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"phiScalar", "=", 
+     RowBox[{"f", "[", 
+      RowBox[{"x", ",", "y", ",", "z"}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"gradPhi", "=", 
+     RowBox[{"Grad", "[", 
+      RowBox[{"phiScalar", ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "y", ",", "z"}], "}"}]}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"curlGradPhi", "=", 
+     RowBox[{
+      RowBox[{"Curl", "[", 
+       RowBox[{"gradPhi", ",", 
+        RowBox[{"{", 
+         RowBox[{"x", ",", "y", ",", "z"}], "}"}]}], "]"}], "//", 
+      "Simplify"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<curl(grad phi) = \>\"", ",", "curlGradPhi"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"Task", " ", "1.2"}], ":", 
+     RowBox[{"Divergence", " ", "and", " ", "Flux"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", "\"\<\\n--- Task 1.2 ---\>\"", "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"r", "=", 
+     RowBox[{"Sqrt", "[", 
+      RowBox[{
+       RowBox[{"x", "^", "2"}], "+", 
+       RowBox[{"y", "^", "2"}], "+", 
+       RowBox[{"z", "^", "2"}]}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"F", "=", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"x", ",", "y", ",", "z"}], "}"}], "/", 
+      RowBox[{"r", "^", "3"}]}]}], ";"}], "\n", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"divF", "=", 
+     RowBox[{
+      RowBox[{"Div", "[", 
+       RowBox[{"F", ",", 
+        RowBox[{"{", 
+         RowBox[{"x", ",", "y", ",", "z"}], "}"}]}], "]"}], "//", 
+      "FullSimplify"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<div F (for r != 0) = \>\"", ",", "divF"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", "Visualization", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"vectorPlot", "=", 
+     RowBox[{"VectorPlot3D", "[", 
+      RowBox[{"F", ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", 
+         RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"y", ",", 
+         RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"z", ",", 
+         RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+       RowBox[{"VectorPoints", "->", "10"}], ",", 
+       RowBox[{"VectorStyle", "->", "\"\<Arrow3D\>\""}], ",", 
+       RowBox[{"PlotLabel", "->", "\"\<Field F = r/r^3\>\""}]}], "]"}]}], 
+    ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{"\"\<vector_plot_f.png\>\"", ",", "vectorPlot"}], "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{
+    "Print", "[", "\"\<Vector plot saved as vector_plot_f.png\>\"", "]"}], 
+    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Physical", " ", 
+     RowBox[{"Interpretation", ":", 
+      RowBox[{
+      "This", " ", "field", " ", "represents", " ", "the", " ", "electric", " ",
+        "field", " ", "of", " ", "a", " ", "point", " ", "charge", " ", "at", 
+       " ", "the", " ", "origin", " ", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+         "or", " ", "the", " ", "gravitational", " ", "field", " ", "of", " ",
+           "a", " ", "point", " ", "mass"}], ")"}], ".", "Divergence"}], " ", 
+       "is", " ", "zero", " ", "everywhere", " ", "except", " ", "at", " ", 
+       "the", " ", 
+       RowBox[{"origin", "."}]}]}]}], "*)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"Task", " ", "2"}], ":", "Electrostatics"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", "\"\<\\n--- Task 2 ---\>\"", "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"q", "=", "1"}], ";", 
+    RowBox[{"k", "=", "1"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"charges", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"q", ",", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"q", ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "1"}], ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", "2"}], "*", "q"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}]}], "}"}]}], ";"}],
+    "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{"Total", " ", "Potential", " ", "phi", 
+     RowBox[{"(", 
+      RowBox[{"x", ",", "y", ",", "z"}], ")"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"phiTotal", "[", 
+      RowBox[{"x_", ",", "y_", ",", "z_"}], "]"}], ":=", 
+     RowBox[{"Sum", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"c", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "/", 
+        RowBox[{"Sqrt", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"x", "-", 
+             RowBox[{"c", "[", 
+              RowBox[{"[", 
+               RowBox[{"2", ",", "1"}], "]"}], "]"}]}], ")"}], "^", "2"}], "+", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"y", "-", 
+             RowBox[{"c", "[", 
+              RowBox[{"[", 
+               RowBox[{"2", ",", "2"}], "]"}], "]"}]}], ")"}], "^", "2"}], "+", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"z", "-", 
+             RowBox[{"c", "[", 
+              RowBox[{"[", 
+               RowBox[{"2", ",", "3"}], "]"}], "]"}]}], ")"}], "^", "2"}]}], 
+         "]"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"c", ",", "charges"}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"Electric", " ", "Field", " ", "E"}], "=", 
+     RowBox[{
+      RowBox[{"-", "grad"}], " ", "phi"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"fieldE", "[", 
+      RowBox[{"x_", ",", "y_", ",", "z_"}], "]"}], ":=", 
+     RowBox[{
+      RowBox[{"-", 
+       RowBox[{"Grad", "[", 
+        RowBox[{
+         RowBox[{"phiTotal", "[", 
+          RowBox[{"sx", ",", "sy", ",", "sz"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"sx", ",", "sy", ",", "sz"}], "}"}]}], "]"}]}], "/.", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"sx", "->", "x"}], ",", 
+        RowBox[{"sy", "->", "y"}], ",", 
+        RowBox[{"sz", "->", "z"}]}], "}"}]}]}], ";"}], "\[IndentingNewLine]", 
+   "\n", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"Visualizations", " ", "on", " ", "z"}], "=", 
+     RowBox[{"0", " ", "plane"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"contourPlot", "=", 
+     RowBox[{"ContourPlot", "[", 
+      RowBox[{
+       RowBox[{"phiTotal", "[", 
+        RowBox[{"x", ",", "y", ",", "0"}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", 
+         RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"y", ",", 
+         RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+       RowBox[{"Contours", "->", "20"}], ",", 
+       RowBox[{"ColorFunction", "->", "\"\<TemperatureMap\>\""}], ",", 
+       RowBox[{"PlotLabel", "->", "\"\<Potential at z=0\>\""}]}], "]"}]}], 
+    ";"}], "\n", 
+   RowBox[{
+    RowBox[{"streamPlot", "=", 
+     RowBox[{"StreamPlot", "[", 
+      RowBox[{
+       RowBox[{"Take", "[", 
+        RowBox[{
+         RowBox[{"fieldE", "[", 
+          RowBox[{"x", ",", "y", ",", "0"}], "]"}], ",", "2"}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", 
+         RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"y", ",", 
+         RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+       RowBox[{"PlotLabel", "->", "\"\<Field Lines at z=0\>\""}]}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{"Export", " ", "images"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{"\"\<potential_contour.png\>\"", ",", "contourPlot"}], "]"}], 
+    ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{"\"\<field_stream.png\>\"", ",", "streamPlot"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"Find", " ", "equilibrium", " ", "points", " ", "E"}], "=", 
+     "0"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"eqPoints", "=", 
+     RowBox[{"NSolve", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"fieldE", "[", 
+           RowBox[{"x", ",", "y", ",", "z"}], "]"}], "==", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "0", ",", "0"}], "}"}]}], ",", 
+         RowBox[{
+          RowBox[{"-", "2"}], "<", "x", "<", "2"}], ",", 
+         RowBox[{
+          RowBox[{"-", "2"}], "<", "y", "<", "2"}], ",", 
+         RowBox[{
+          RowBox[{"-", "2"}], "<", "z", "<", "2"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "y", ",", "z"}], "}"}]}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Equilibrium points (E=0): \>\"", ",", "eqPoints"}], "]"}], 
+    ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{"Stability", " ", 
+     RowBox[{"Discussion", ":", 
+      RowBox[{
+      "Equilibrium", " ", "points", " ", "in", " ", "static", " ", "electric",
+        " ", "fields", " ", "are", " ", "always", " ", "unstable", " ", 
+       RowBox[{"(", 
+        RowBox[{"saddle", " ", "points"}], ")"}], " ", "due", " ", "to", " ", 
+       RowBox[{"Gauss", "'"}], "s", " ", "Law", " ", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"Earnshaw", "'"}], "s", " ", "Theorem"}], ")"}], 
+        "."}]}]}]}], "*)"}], "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.976865307285383*^9, 3.976865307286379*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"2640656e-91fc-5842-b7e8-091a3dad44af"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"--- Task 1.1 ---\"\>"], "Print",
+ CellChangeTimes->{3.976865313388155*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[1]:=",ExpressionUUID->"f256e126-aa0d-9b4c-b2fb-\
+6b661795ec68"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"A x B = \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "z"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox["y", "2"], "+", 
+        RowBox[{"x", " ", "z"}]}], ")"}]}], ",", 
+     RowBox[{"z", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox["x", "2"], "-", 
+        RowBox[{"y", " ", "z"}]}], ")"}]}], ",", 
+     RowBox[{
+      SuperscriptBox["x", "3"], "+", 
+      SuperscriptBox["y", "3"]}]}], "}"}]}],
+  SequenceForm[
+  "A x B = ", {-$CellContext`z ($CellContext`y^2 + $CellContext`x \
+$CellContext`z), $CellContext`z ($CellContext`x^2 - $CellContext`y \
+$CellContext`z), $CellContext`x^3 + $CellContext`y^3}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.976865313621374*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[1]:=",ExpressionUUID->"5854fcf9-95c4-894d-89dd-\
+3031645601cd"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"curl A = \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", 
+     RowBox[{"-", "2"}]}], "}"}]}],
+  SequenceForm["curl A = ", {0, 0, -2}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.976865314324251*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[1]:=",ExpressionUUID->"481eeb90-057f-b244-8a0b-\
+272732493fc8"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"curl B = \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "0"}], "}"}]}],
+  SequenceForm["curl B = ", {0, 0, 0}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9768653143262424`*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[1]:=",ExpressionUUID->"798dd6ab-cd86-7645-811f-\
+b8ee4c91a90e"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"curl(grad phi) = \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "0"}], "}"}]}],
+  SequenceForm["curl(grad phi) = ", {0, 0, 0}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9768653143571415`*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[1]:=",ExpressionUUID->"ad9d0f97-a528-b04c-8e05-\
+b851ecf5d17b"],
+
+Cell[BoxData["\<\"\\n--- Task 1.2 ---\"\>"], "Print",
+ CellChangeTimes->{3.9768653143591347`*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[1]:=",ExpressionUUID->"8fceb9c7-fb5c-1a4e-be93-\
+14c930f4f2f5"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"div F (for r != 0) = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["div F (for r != 0) = ", 0],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9768653143591347`*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[1]:=",ExpressionUUID->"e6a00140-9de8-034a-ab6e-\
+72125bb242db"],
+
+Cell[BoxData["\<\"Vector plot saved as vector_plot_f.png\"\>"], "Print",
+ CellChangeTimes->{3.9768653203777657`*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[1]:=",ExpressionUUID->"d2393b88-2837-e74d-80ef-\
+d987a32174d5"],
+
+Cell[BoxData["\<\"\\n--- Task 2 ---\"\>"], "Print",
+ CellChangeTimes->{3.9768653203797684`*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[1]:=",ExpressionUUID->"eacf4705-9607-6f4a-83b4-\
+6e1402310173"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Equilibrium points (E=0): \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"y", "\[Rule]", "0"}], ",", 
+       RowBox[{"z", "\[Rule]", 
+        RowBox[{"-", "0.6207213617104246`"}]}], ",", 
+       RowBox[{"x", "\[Rule]", "0"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"y", "\[Rule]", "0"}], ",", 
+       RowBox[{"z", "\[Rule]", 
+        RowBox[{"-", "0.6207213617104225`"}]}], ",", 
+       RowBox[{"x", "\[Rule]", "0"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"y", "\[Rule]", "0"}], ",", 
+       RowBox[{"z", "\[Rule]", 
+        RowBox[{"-", "0.6207213617104224`"}]}], ",", 
+       RowBox[{"x", "\[Rule]", "0"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"y", "\[Rule]", "0"}], ",", 
+       RowBox[{"z", "\[Rule]", 
+        RowBox[{"-", "0.6207213617104221`"}]}], ",", 
+       RowBox[{"x", "\[Rule]", "0"}]}], "}"}]}], "}"}]}],
+  SequenceForm[
+  "Equilibrium points (E=0): ", {{$CellContext`y -> 
+     0, $CellContext`z -> -0.6207213617104246, $CellContext`x -> 
+     0}, {$CellContext`y -> 
+     0, $CellContext`z -> -0.6207213617104225, $CellContext`x -> 
+     0}, {$CellContext`y -> 
+     0, $CellContext`z -> -0.6207213617104224, $CellContext`x -> 
+     0}, {$CellContext`y -> 
+     0, $CellContext`z -> -0.6207213617104221, $CellContext`x -> 0}}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.976865336989691*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[1]:=",ExpressionUUID->"f491a4b4-e028-3641-963e-\
+6ec93eeb22cc"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{581.25, 654},
+WindowMargins->{{497.25, Automatic}, {167.25, Automatic}},
+FrontEndVersion->"14.3 for Microsoft Windows (64-bit) (2025\:5e747\:67088\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"2a8d86d5-3eb5-d44d-bfe2-8bdb151ccda4"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 11680, 328, 2036, "Input",ExpressionUUID->"2640656e-91fc-5842-b7e8-091a3dad44af"],
+Cell[CellGroupData[{
+Cell[12281, 354, 199, 4, 22, "Print",ExpressionUUID->"f256e126-aa0d-9b4c-b2fb-6b661795ec68"],
+Cell[12483, 360, 922, 27, 24, "Print",ExpressionUUID->"5854fcf9-95c4-894d-89dd-3031645601cd"],
+Cell[13408, 389, 392, 11, 22, "Print",ExpressionUUID->"481eeb90-057f-b244-8a0b-272732493fc8"],
+Cell[13803, 402, 372, 10, 22, "Print",ExpressionUUID->"798dd6ab-cd86-7645-811f-b8ee4c91a90e"],
+Cell[14178, 414, 388, 10, 22, "Print",ExpressionUUID->"ad9d0f97-a528-b04c-8e05-b851ecf5d17b"],
+Cell[14569, 426, 204, 4, 39, "Print",ExpressionUUID->"8fceb9c7-fb5c-1a4e-be93-14c930f4f2f5"],
+Cell[14776, 432, 329, 8, 22, "Print",ExpressionUUID->"e6a00140-9de8-034a-ab6e-72125bb242db"],
+Cell[15108, 442, 223, 4, 22, "Print",ExpressionUUID->"d2393b88-2837-e74d-80ef-d987a32174d5"],
+Cell[15334, 448, 202, 4, 39, "Print",ExpressionUUID->"eacf4705-9607-6f4a-83b4-6e1402310173"],
+Cell[15539, 454, 1610, 42, 57, "Print",ExpressionUUID->"f491a4b4-e028-3641-963e-6ec93eeb22cc"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
